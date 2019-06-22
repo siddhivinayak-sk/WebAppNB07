@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+
+<tiles-definitions>
+
+ <!-- definitions that extends default* -->
+
+	<definition extends="layout/{1}" name="home/*">
+		<put-attribute name="body" value="/WEB-INF/views/home/home.jspx" />
+	</definition>
+
+	<definition extends="layout/{1}" name="login/*">
+		<put-attribute name="body" value="/WEB-INF/views/login/login.jspx" />
+	    <put-attribute name="menu" value="" />
+		<put-attribute name="common" value="" />
+	    <put-attribute name="header" value="" />
+		<put-attribute name="footer" value="" />
+	</definition>
+
+	<definition extends="layout/{1}" name="logout/*">
+		<put-attribute name="body" value="/WEB-INF/views/logout/logout.jsp" />
+	</definition>
+
+	<definition extends="layout/{1}" name="accessdenied/*">
+		<put-attribute name="body" value="/WEB-INF/views/accessdenied/accessdenied.jsp" />
+	</definition>
+
+	<definition extends="layout/{1}" name="solr/*">
+		<put-attribute name="body" value="/WEB-INF/views/solr/solr.jspx" />
+	</definition>
+
+	<definition extends="layout/{1}" name="form/*">
+		<put-attribute name="body" value="/WEB-INF/views/form/form.jsp" />
+	</definition>
+
+	<definition extends="layout/{1}" name="upload/*">
+		<put-attribute name="body" value="/WEB-INF/views/form/uploadfile.jsp" />
+	</definition>
+</tiles-definitions>

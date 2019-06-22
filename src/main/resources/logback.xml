@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- configuration file for LogBack (slf4J implementation)
+See here for more details: http://gordondickens.com/wordpress/2013/03/27/sawing-through-the-java-loggers/ -->
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+
+    <!-- To enable JMX Management -->
+    <jmxConfigurator/>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-5level %logger{0} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="file" class="ch.qos.logback.core.FileAppender">
+        <file>f:/myapp.log</file>
+    	<append>true</append>
+            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                  <fileNamePattern>f:/logs/mylog-%d{yyyy-MM-dd}.%i.txt</fileNamePattern>
+                   <!-- each file should be at most 100MB, keep 60 days worth of history, but at most 20GB -->
+                   <maxFileSize>100MB</maxFileSize>    
+                   <maxHistory>60</maxHistory>
+                   <totalSizeCap>20GB</totalSizeCap>
+            </rollingPolicy>
+        <encoder>
+            <pattern>%-5level %logger{0} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+	<!--<logger name="org.hibernate" level="debug"/> -->
+   <!-- Uncomment and add your logger here:
+    <logger name="org.springframework.samples.service.service" level="debug"/> -->
+         
+    <root level="info">
+        <appender-ref ref="console"/>
+        <appender-ref ref="file"/>
+    </root>
+</configuration>

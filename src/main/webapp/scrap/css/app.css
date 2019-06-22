@@ -1,0 +1,11 @@
+/* ddesSelectCheck */
+.selectBox {position: relative;}
+.selectBox select {width: 100%;}
+.overSelect {position:absolute;left:0;right:0;top:0;bottom:0;}
+.checkboxes {position:absolute;min-width:50px;max-width:500px;border:1px #dadada solid; z-index: 1000;}
+.checkboxes label {display: block;}
+.checkboxes label:hover {background-color: #1e90ff;}
+/* End */
+
+
+

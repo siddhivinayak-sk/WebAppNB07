@@ -1,0 +1,44 @@
+<div xmlns:spring="http://www.springframework.org/tags" xmlns:cdn="http://www.SHLOnline.com/cdnurl"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" 
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:w="http://www.SHLOnline.com/widget"
+	xmlns:cp="urn:jsptagdir:/WEB-INF/tags/contentpackage"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:daterange="urn:jsptagdir:/WEB-INF/tags/daterange"
+	xmlns:security="http://www.springframework.org/security/tags">
+    <jsp:directive.page contentType="text/html;charset=UTF-8" />
+    <jsp:output omit-xml-declaration="yes" />
+    <c:url value="/do_logout" var="logoutUrl" />
+    <c:url value="/appuser/all" var="allUserUrl" />
+    <c:url value="/solr" var="solrUrl" />
+    <c:url value="/form/" var="fromUrl" />
+    <script>
+    function formSubmit() {
+            document.getElementById("logoutForm").submit();
+    }
+    </script>
+
+    <h1>Title : ${title}</h1>
+    <h1>Message : ${message}</h1>
+
+    <!-- csrt for log out-->
+    <form action="${logoutUrl}" method="post" id="logoutForm">
+        <input type="hidden"  name="${_csrf.parameterName}" value="${_csrf.token}" />
+    </form>
+
+    <c:if test="${pageContext.request.userPrincipal.name != null}">
+        <h2>Welcome : ${pageContext.request.userPrincipal.name} | <a href="javascript:formSubmit()"> Logout</a></h2>
+    </c:if>
+    
+    
+    <div><a href="${allUserUrl}">All Data</a></div>    
+
+    <div class="solarTest">
+        <a href="${solrUrl}">Solr Tasks</a>
+    </div>
+    
+    <div><a href="${fromUrl}">Form</a></div>
+    
+</div>

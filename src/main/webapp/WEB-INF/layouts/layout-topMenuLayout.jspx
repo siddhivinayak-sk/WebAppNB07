@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<html class = "${requestScope['browser']}" dir="${requestScope['pageDir']}"
+	  data-env = "${requestScope['environment']}"
+	  xmlns:jsp="http://java.sun.com/JSP/Page" 
+      xmlns:c="http://java.sun.com/jsp/jstl/core" 
+	  xmlns:tiles="http://tiles.apache.org/tags-tiles"
+      xmlns:spring="http://www.springframework.org/tags"
+      xmlns:cdn="http://www.SHLOnline.com/cdnurl" 
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" >  
+	
+	<jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" />
+	
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />  
+	<jsp:directive.page pageEncoding="UTF-8" /> 
+  	
+	<head>
+            <meta name="_csrf" content="${_csrf.token}"/>
+	    <!-- default header name is X-CSRF-TOKEN -->
+	    <meta name="_csrf_header" content="${_csrf.headerName}"/>
+	    <!-- ... -->
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta charset="utf-8"/>
+   	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <meta name="description" content=""/>
+            <meta name="author" content=""/>
+            <link rel="shortcut icon" href="#"/>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	</head>
+	
+  	<body>
+  		
+  		<div id="main-wrapper">
+  			<div id="wrapper-inner">
+  				
+		    	<tiles:insertAttribute name="header" ignore="true" />
+		    	
+		    	<!-- zeta: uncomment these 3 classes -->
+		    	<div class="main-container" id="main-container">
+		    	
+		    		<div class="main-container-inner">
+
+		    			<tiles:insertAttribute name="menu" ignore="true" />  
+		    			
+		    			<div class="main-content" id="main_content"> 
+		    			 
+    						<tiles:insertAttribute name="body" ignore="true" /> 
+    						<tiles:insertAttribute name="common" ignore="true" />
+    					
+    					 </div><!-- main-content -->
+    				
+    				</div> <!-- main-container-inner -->
+    				
+    			 </div><!-- main-container -->
+    		
+    		</div><!-- wrapper-inner -->
+    	</div><!-- main-wrapper -->
+	    	<tiles:insertAttribute name="footer" ignore="true"/>
+	    
+	</body>
+</html>
